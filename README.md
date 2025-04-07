@@ -1,4 +1,4 @@
-# How to customize the DataGridTableSummaryCellRenderer in .NET MAUI DataGrid (SfDataGrid) ?
+# How to customize the table summary row in .NET MAUI DataGrid (SfDataGrid) ?
 In this article, we will show you how to customize the table summary row in [.NET MAUI DataGrid](https://www.syncfusion.com/maui-controls/maui-datagrid).
 
 ## Xaml
