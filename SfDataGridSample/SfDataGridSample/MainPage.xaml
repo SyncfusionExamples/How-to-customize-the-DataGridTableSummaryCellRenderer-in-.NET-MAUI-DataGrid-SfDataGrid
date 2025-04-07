@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:local="clr-namespace:SfDataGridSample"
+             x:Class="SfDataGridSample.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:EmployeeViewModel x:Name="viewModel" />
+    </ContentPage.BindingContext>
+
+    <syncfusion:SfDataGrid x:Name="sfGrid" 
+                           GridLinesVisibility="Both"
+                           HeaderGridLinesVisibility="Both"
+                           ColumnWidthMode="Auto"
+                           AutoGenerateColumnsMode="None"
+                           ItemsSource="{Binding Employees}">
+
+        <syncfusion:SfDataGrid.TableSummaryRows>
+            <syncfusion:DataGridTableSummaryRow Title="Total Salary :{TotalSalary} for {ProductCount} members"
+                                            ShowSummaryInRow="True">
+                <syncfusion:DataGridTableSummaryRow.SummaryColumns>
+                    <syncfusion:DataGridSummaryColumn Name="TotalSalary"
+                                                  Format="{}{Sum:C0}"
+                                                  MappingName="Salary"
+                                                  SummaryType="DoubleAggregate" />
+                    <syncfusion:DataGridSummaryColumn Name="ProductCount"
+                                                  Format="{}{Count}"
+                                                  MappingName="Salary"
+                                                  SummaryType="CountAggregate" />
+                </syncfusion:DataGridTableSummaryRow.SummaryColumns>
+            </syncfusion:DataGridTableSummaryRow>
+        </syncfusion:SfDataGrid.TableSummaryRows>
+
+        <syncfusion:SfDataGrid.Columns>
+            <syncfusion:DataGridTextColumn MappingName="Name"
+                                           HeaderText="Employee Name" />
+            <syncfusion:DataGridTextColumn MappingName="Title"
+                                           HeaderText="Designation" />
+            <syncfusion:DataGridTextColumn MappingName="LoginID"
+                                           HeaderText="Login ID" />
+            <syncfusion:DataGridTextColumn MappingName="Salary"
+                                           HeaderText="Salary" />
+
+        </syncfusion:SfDataGrid.Columns>
+
+    </syncfusion:SfDataGrid>
+
+</ContentPage>
